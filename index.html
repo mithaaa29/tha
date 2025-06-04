@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sejarah Senjata Museum Jenderal Soedirman</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto&display=swap');
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #5a4320 0%, #b88a4a 100%);
+            color: #f4eee8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            width: 100%;
+            height: 300px;
+            background-image: url(img/animasi\ \(2\).png);
+            /* Replace with your image URL */
+            background-size: contain;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            font-size: 2.8rem;
+            text-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+        }
+
+        main {
+            display: flex;
+            /* Use flexbox for main layout */
+            flex: 1;
+            /* Allow main to take remaining space */
+            padding: 20px;
+        }
+
+        nav {
+            width: 250px;
+            /* Fixed width for the vertical menu */
+            display: flex;
+            flex-direction: column;
+            /* Stack buttons vertically */
+            margin-right: 20px;
+            /* Space between content and nav */
+            background: linear-gradient(135deg, #f3d385, #e0b74d);
+            /* Gradient background for nav */
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav button {
+            background: #d1a74d;
+            /* Different color for buttons */
+            color: #5a4320;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 0 10px #f7e1a1cc, 0 5px 18px -5px #886726cc;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+            user-select: none;
+            margin-bottom: 12px;
+            /* Space between buttons */
+        }
+
+        nav button:hover,
+        nav button:focus {
+            background: #9b7a39;
+            /* Lighter color on hover */
+            color: #593f00;
+            outline: none;
+            box-shadow: 0 0 18px #fff9ccff, 0 8px 26px -5px #a18332ff;
+        }
+
+        nav button.active {
+            background: rgb(235, 228, 175);
+            /* Active button color */
+            color: #3b2f08;
+            box-shadow: 0 0 24px rgb(189, 182, 132) 0 0 24px rgb(150, 143, 96);
+        }
+
+        .content {
+            flex: 1;
+            /* Allow content to take remaining space */
+            background: linear-gradient(135deg, #bd9f63dd);
+            /* Gradient background for content */
+            border-radius: 18px;
+            box-shadow: 0 10px 36px rgba(0, 0, 0, 0.6);
+            padding: 32px 48px;
+            color: #af9665;
+            min-height: 480px;
+        }
+
+        section.page {
+            display: none;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        section.page.active {
+            display: block;
+        }
+
+        section.page h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #302b21;
+            border-bottom: 3px solid #f3d385;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        section.page p {
+            text-align: justify;
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: #302b21;
+            line-height: 1.6;
+        }
+
+        figure {
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            max-height: 340px;
+            border-radius: 14px;
+            border: 4px solid #f3d385dd;
+            box-shadow: 0 10px 22px #7a5c1cbb;
+            transition: transform 0.4s ease;
+            cursor: zoom-in;
+            object-fit: contain;
+        }
+
+        figure img:hover {
+            transform: scale(1.07);
+        }
+
+        figcaption {
+            margin-top: 8px;
+            font-style: italic;
+            font-size: 1rem;
+            color: #7f6a29cc;
+        }
+
+        footer {
+            margin-top: 5px;
+            margin-bottom: 20px;
+            /* ini tambahan jarak dari bawah */
+            font-size: 0.95rem;
+            color: #ffe8a0;
+            text-align: center;
+            font-style: italic;
+            user-select: none;
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            header {
+                height: 200px;
+                /* Adjust header height for mobile */
+            }
+
+            header h1 {
+                font-size: 2rem;
+                /* Adjust font size for mobile */
+            }
+
+            nav {
+                width: 100%;
+                /* Full width for mobile */
+                margin-right: 0;
+                /* Remove margin on mobile */
+                flex-direction: row;
+                /* Stack buttons horizontally on mobile */
+                overflow-x: auto;
+                /* Allow horizontal scrolling */
+            }
+
+            nav button {
+                font-size: 1rem;
+                padding: 10px 15px;
+                min-width: 80px;
+            }
+
+            main {
+                flex-direction: column;
+                /* Stack content vertically on mobile */
+                align-items: center;
+                /* Center align content */
+            }
+
+            .content {
+                width: 100%;
+                /* Full width for content */
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Museum Jenderal Soedirman - Sejarah Senjata</h1>
+    </header>
+
+    <main>
+        <nav role="navigation" aria-label="Pilih jenis senjata untuk melihat penjelasan">
+            <button class="active" data-target="intro" aria-current="page">Pengantar</button>
+            <button data-target="golok">Golok Tradisional</button>
+            <button data-target="senapan-retak">Senapan Retak</button>
+            <button data-target="senjata-api">Senjata Api Lama</button>
+            <button data-target="pentung-tombak">Pentung &amp; Tombak</button>
+        </nav>
+
+        <div class="content">
+            <section id="intro" class="page active" aria-label="Pengantar tentang senjata museum">
+                <h2>Pengenalan Senjata di Museum Jenderal Soedirman</h2>
+                <figure>
+                    <img src="img/senjata.jpg" alt="Ilustrasi Senjata" loading="lazy" />
+                    <!-- Replace with your image URL -->
+                    <figcaption>Ilustrasi senjata yang dipajang di museum.</figcaption>
+                </figure>
+                <p>
+                    Selamat datang di Museum Jenderal Soedirman, rumah bagi koleksi senjata bersejarah yang
+                    menggambarkan
+                    perjalanan perjuangan bangsa Indonesia. Di sini, Anda akan menemukan beragam jenis senjata yang
+                    pernah
+                    digunakan para pahlawan untuk mempertahankan kemerdekaan dan melindungi tanah air.
+                </p>
+                <p>
+                    Mulai dari <strong>golok tradisional</strong>, senjata tajam yang multifungsi dan menjadi andalan
+                    para
+                    pejuang dalam pertempuran maupun kegiatan sehari-hari. Kemudian, ada <strong>senapan retak</strong>,
+                    senjata sederhana namun efektif yang banyak digunakan dalam pertempuran jarak dekat.
+                </p>
+                <p>
+                    Tak kalah penting, koleksi <strong>senjata api lama</strong> yang menjadi alat utama Tentara
+                    Nasional
+                    Indonesia dalam mempertahankan kemerdekaan di berbagai medan tempur. Dan tentu saja, ada juga
+                    <strong>pentung dan tombak</strong>, senjata tradisional yang memiliki nilai budaya tinggi serta
+                    keunggulan dalam pertempuran jarak dekat.
+                </p>
+                <p>
+                    Setiap jenis senjata ini membawa cerita dan nilai sejarah yang berbeda, yang bersama-sama membentuk
+                    gambaran utuh tentang perjuangan bangsa kita. Melalui koleksi ini, mari kita kenang kembali semangat
+                    dan
+                    keberanian para pahlawan yang telah mengorbankan segalanya demi kemerdekaan Indonesia.
+                </p>
+            </section>
+
+            <section id="golok" class="page" aria-label="Golok Tradisional">
+                <h2>Golok Tradisional</h2>
+                <figure>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Golok_batang_01.JPG"
+                        alt="Golok tradisional Museum Jenderal Soedirman" loading="lazy" />
+                    <figcaption>Golok tradisional yang digunakan sebagai senjata dan alat sehari-hari.</figcaption>
+                </figure>
+                <p>
+                    Golok adalah senjata tajam multifungsi yang dipakai para pejuang Indonesia.
+                    Selain bertarung, golok juga membantu aktivitas harian seperti memotong kayu dan membersihkan lahan.
+                    Golok koleksi museum ini adalah warisan asli yang pernah digunakan prajurit pemberani.
+                </p>
+            </section>
+
+            <section id="senapan-retak" class="page" aria-label="Senapan Retak">
+                <h2>Senapan Retak (Senapan Angin)</h2>
+                <figure>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/AllaGerman_Carbine_1917.jpg"
+                        alt="Senapan retak era perjuangan" loading="lazy" />
+                    <figcaption>Senapan retak yang digunakan pada masa perjuangan kemerdekaan.</figcaption>
+                </figure>
+                <p>
+                    Senapan retak populer di masa perjuangan karena mekanismenya sederhana dan efektif jarak dekat.
+                    Senjata ini banyak dimiliki pejuang di pedesaan dan menjadi andalan dalam berbagai pertempuran.
+                </p>
+            </section>
+
+            <section id="senjata-api" class="page" aria-label="Senjata Api Lama">
+                <h2>Senjata Api Lama</h2>
+                <figure>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Sprgtrp_pistol_1.jpg"
+                        alt="Senjata api lawas masa perang kemerdekaan" loading="lazy" />
+                    <figcaption>Senjata api tradisional yang digunakan Tentara Nasional Indonesia.</figcaption>
+                </figure>
+                <p>
+                    Senjata api lama seperti pistol dan senapan adalah alat utama Tentara Nasional Indonesia
+                    mempertahankan
+                    kemerdekaan.
+                    Setiap senjata menyimpan kisah heroik dari medan perang yang membanggakan.
+                </p>
+            </section>
+
+            <section id="pentung-tombak" class="page" aria-label="Pentung dan Tombak">
+                <h2>Pentung dan Tombak</h2>
+                <figure>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Tombak_Keris_Sumatra_3.JPG"
+                        alt="Contoh pentung dan tombak yang dipamerkan" loading="lazy" />
+                    <figcaption>Senjata tradisional pentung dan tombak yang dipakai dalam pertempuran jarak dekat.
+                    </figcaption>
+                </figure>
+                <p>
+                    Pentung dan tombak adalah senjata tradisional bernilai budaya tinggi dan efektif untuk pertempuran
+                    jarak
+                    dekat.
+                    Senjata ini menjadi bagian tak terpisahkan dari kehidupan dan perjuangan masyarakat Indonesia.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Museum Jenderal Soedirman - Merawat Sejarah, Menginspirasi Generasi
+    </footer>
+
+    <script>
+        const buttons = document.querySelectorAll('nav button');
+        const pages = document.querySelectorAll('section.page');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and pages
+                buttons.forEach(btn => btn.classList.remove('active'));
+                pages.forEach(page => page.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding page
+                button.classList.add('active');
+                const target = button.getAttribute('data-target');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
